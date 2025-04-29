@@ -38,18 +38,22 @@ const Contact = () => {
     setError(null);
     
     try {
-      // Replace with your actual API endpoint
-      const response = await fetch('/api/contact', {
+      // Formspree endpoint - replace YOUR_FORM_ID with your actual Formspree form ID
+      const formspreeEndpoint = 'https://formspree.io/f/mldbgdag';
+      
+      const response = await fetch(formspreeEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(formData),
       });
       
+      const responseData = await response.json();
+      
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to submit form');
+        throw new Error(responseData.error || 'Failed to submit form');
       }
       
       // Success
@@ -69,6 +73,7 @@ const Contact = () => {
       setSubmitStatus('error');
     }
   };
+
 
   // Tech grid lines
   const TechGrid = () => (
