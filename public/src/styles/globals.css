@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-masonic-white text-masonic-black;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  
+  p, a, li, span {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded transition duration-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-dark text-white font-medium py-2 px-4 rounded transition duration-300;
+  }
+  
+  .section {
+    @apply py-12 md:py-24;
+  }
+  
+  .card-masonic {
+    @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
+  }
+}
